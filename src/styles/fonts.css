@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Lastica';
+    src: url('../assets/fonts/Lastica.ttf') format('truetype'); /* Ajuste o caminho se necessário */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sanchez-Regular'; /* Substitua pelo nome desejado */
+    src: url('../assets/fonts/Sanchez-Regular.ttf') format('truetype'); /* Ajuste o caminho e o formato se necessário */
+    font-weight: normal;
+    font-style: normal;
+}
