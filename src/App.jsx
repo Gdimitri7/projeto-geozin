@@ -20,7 +20,7 @@ function HomeScreen() {
           <FaArrowLeft />
         </button>
       </div>
-      <h1 style={{ textAlign: "center", alignItems: "center" }}>Bem-vindo à PINARQ</h1>
+      <h1 style={{ textAlign: "center", alignItems: "center" }}>Bem-vindo à PINARQ.</h1>
       <p style={{ color: "#FE9C9C", fontFamily: 'Sanchez-Regular'}}>Há um gosto de vitória e encanto na condição de ser simples. Não é preciso muito para ser muito.</p>
     </div>
   );
