@@ -1,91 +1,24 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import pinarqImage from "./assets/pinarq.jpg";
-import './styles/fonts.css';
+import "./styles/fonts.css";
+import projetoImage from "./assets/projeto.jpg";
 
-
-
-function HomeScreen() {
+// Componente Header
+function Header() {
   const navigate = useNavigate();
-
-  return (
-    <div>
-      <div style={{ position: "absolute", top: 20, right: 20 }}>
-        <button onClick={() => navigate(-1)} style={{
-          backgroundColor: "transparent",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "20px",
-        }}>
-          <FaArrowLeft />
-        </button>
-      </div>
-      <h1 style={{ textAlign: "center", alignItems: "center" }}>Bem-vindo à PINARQ.</h1>
-      <p style={{ color: "#FE9C9C", fontFamily: 'Sanchez-Regular'}}>Há um gosto de vitória e encanto na condição de ser simples. Não é preciso muito para ser muito.</p>
-    </div>
-  );
-}
-
-function SobrePINARQ() {
-  return (
-    <div style={{ padding: "20px", maxWidth: "800px", textAlign: "center", width: "100%" }}>
-      <h2>Sobre a PINARQ</h2>
-      <p>Um escritório diferente, que nasceu num momento de crise, porém de oportunidades. Projetos influenciados pela arte e criatividade.</p>
-    </div>
-  );
-}
-
-function SobreNos() {
-  return (
-    <div style={{ maxWidth: "800px", margin: "auto", textAlign: "center", width: "100%" }}>
-      <h2>Sobre Nós</h2>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: "100%" }}>
-        <img src={pinarqImage} alt="Imagem da PINARQ" style={{ width: "20%", height: "auto", borderRadius: "8px", marginRight: "16px" }} />
-        <h1>GEOVANA REGINA</h1>
-      </div>
-    </div>
-  );
-}
-
-function Projeto() {
-  return <h2 style={{ width: "100%", textAlign: "center" }}>Projeto</h2>;
-}
-
-function Contatos() {
-  return <h2 style={{ width: "100%", textAlign: "center" }}>Contatos</h2>;
-}
-
-function Navbar() {
   const location = useLocation();
 
   return (
-    <nav>
-      {location.pathname !== "/" && (
-        <Link to="/" style={{ flexGrow: 1, textAlign: "center", textDecoration: "none", color: "black" }}>Home</Link>
-      )}
-      <div style={{
-        display: "flex",
-        padding: "1rem",
-        alignItems: "center",
-        backgroundColor: "#A5FDD0",
-        width: "100%",
-        borderBottom: "7px solid #3CA670",
-        borderTop: "7px solid #3CA670",
-        height: "15px",
-      }}>
-        <Link to="/sobre-pinarq" style={{ flexGrow: 1, textAlign: "center", textDecoration: "none", color: "black" , borderRight: "1px solid black" }}>Sobre a PINARQ</Link>
-        <Link to="/sobre-nos" style={{ flexGrow: 1, textAlign: "center", textDecoration: "none", color: "black", borderRight: "1px solid black" }}>Sobre Nós</Link>
-        <Link to="/projeto" style={{ flexGrow: 1, textAlign: "center", textDecoration: "none", color: "black", borderRight: "1px solid black" }}>Projeto</Link>
-        <Link to="/contatos" style={{ flexGrow: 1, textAlign: "center", textDecoration: "none", color: "black" }}>Contatos</Link>
-      </div>
-    </nav>
-  );
-}
-
-export default function App() {
-  return (
-    <Router>
-      <header style={{
+    <header
+      style={{
         position: "fixed",
         top: 0,
         width: "100%",
@@ -93,26 +26,547 @@ export default function App() {
         color: "black",
         textAlign: "center",
         display: "flex",
-        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
         fontWeight: "bold",
         fontSize: "24px",
         zIndex: 1000,
-      }}>
+        padding: "10px 0",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         <div
-            style={{
-                padding: "10px 0",
-                height: "69px",
-                textAlign: "center",
-                fontFamily: 'Lastica, sans-serif', // Certifique-se de que "Lastica" está instalado
-                fontSize: "55px",
-            }}
+          style={{
+            fontFamily: "Lastica, sans-serif",
+            fontSize: "55px",
+            marginRight: "auto",
+          }}
         >
-            PINARQ
+          PINARQ
         </div>
-        <Navbar />
-      </header>
+        {location.pathname !== "/" && (
+          <button
+            onClick={() => navigate("/")}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              cursor: "pointer",
+              color: "#FE9C9C",
+              fontSize: "20px",
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              marginRight: "auto",
+            }}
+          >
+            <FaArrowLeft style={{ marginRight: "5px" }} />
+            <span
+              style={{
+                fontFamily: "Sanchez-Regular",
+                fontWeight: "bold",
+                fontSize: "15px",
+              }}
+            >
+              HOME
+            </span>
+          </button>
+        )}
+      </div>
+    </header>
+  );
+}
 
-      <div style={{ paddingTop: "120px", height: "500px"}}>
+// Página inicial
+function HomeScreen() {
+  return (
+    <div>
+      <h1 style={{ textAlign: "center" }}>PINARQ.</h1>
+      <p
+        style={{
+          color: "#FE9C9C",
+          fontFamily: "Sanchez-Regular, sans-serif",
+          fontSize: "50px",
+          textAlign: "center",
+        }}
+      >
+        Há um gosto de vitória e encanto na condição de ser simples. Não é
+        preciso muito para ser muito.
+      </p>
+    </div>
+  );
+}
+
+// Página Sobre a PINARQ
+function SobrePINARQ() {
+  return (
+    <div
+      style={{
+        padding: "20px",
+        maxWidth: "100%",
+        textAlign: "center",
+        width: "100%",
+      }}
+    >
+      <h2>Sobre a PINARQ</h2>
+      <p>
+        Um escritório diferente, que nasceu num momento de crise, porém de
+        oportunidades. Projetos influenciados pela arte e criatividade.
+      </p>
+    </div>
+  );
+}
+function SobreNos() {
+  return (
+    <div style={{ padding: "20px" }}>
+      <h1 style={{ textAlign: "center" }}>Sobre Nós</h1>
+
+      <div
+        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}
+      >
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={pinarqImage} // Replace with the actual image path
+            alt="Imagem de Geovana Regina"
+            style={{
+              width: "200px",
+              height: "200px",
+              borderRadius: "50%",
+              marginRight: "16px",
+              border: "7px solid #759080",
+            }}
+          />
+          <h2 style={{ textAlign: "left" }}>GEOVANA REGINA</h2>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <h2 style={{ marginLeft: "300px" }}>GABRIELLE RIZZO</h2>{" "}
+          {/* Ajuste a margem direita do h2 */}
+          <img
+            src={pinarqImage} // Replace with the actual image path
+            alt="Imagem de Outra Pessoa"
+            style={{
+              width: "200px",
+              height: "200px",
+              borderRadius: "50%",
+              border: "7px solid #759080",
+              marginLeft: "16px",
+            }}
+          />
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={pinarqImage} // Replace with the actual image path
+            alt="Imagem de Geovana Regina"
+            style={{
+              width: "200px",
+              height: "200px",
+              borderRadius: "50%",
+              marginRight: "16px",
+              border: "7px solid #759080",
+            }}
+          />
+          <h2 style={{ textAlign: "left" }}>NAYARA ALVES</h2>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <h2 style={{ marginLeft: "283px" }}>BEATRIZ SANTANA</h2>{" "}
+          {/* Ajuste a margem direita do h2 */}
+          <img
+            src={pinarqImage} // Replace with the actual image path
+            alt="Imagem de Outra Pessoa"
+            style={{
+              width: "200px",
+              height: "200px",
+              borderRadius: "50%",
+              border: "7px solid #759080",
+              marginLeft: "16px",
+            }}
+          />
+        </div>
+        <div>
+          <hr style={{ width: "200%", border: "1px solid #759080" }}></hr>
+        </div>
+        <div></div>
+      </div>
+
+      <h2>GEOVANA REGINA</h2>
+      <div
+        style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}
+      >
+        <img
+          src={pinarqImage}
+          alt="Imagem de Geovana Regina"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+            marginRight: "60px",
+          }}
+        ></img>
+        <p>
+          Arquiteta formada no ifsp em 2010, com experiência em projetos de
+          grande porte.
+        </p>
+      </div>
+
+      <h2 style={{ marginLeft: "80%" }}>GABRIELLE RIZZO</h2>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <p style={{ marginLeft: "36%", marginRight: "60px" }}>
+          Formada em arquitetura e urbanismo no ano de 2015, com experiência em
+          interiores
+        </p>
+        <img
+          src={pinarqImage}
+          alt="Imagem de Geovana Regina"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        ></img>
+      </div>
+
+      <h2>NAYARA ALVES</h2>
+      <div
+        style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}
+      >
+        <img
+          src={pinarqImage}
+          alt="Imagem de Geovana Regina"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+            marginRight: "60px",
+          }}
+        ></img>
+        <p>
+          Formada em arquitetura e urbanismo no ano de 2015, com experiência em
+          conforto e interiores.
+        </p>
+      </div>
+
+      <h2 style={{ marginLeft: "80%" }}>BEATRIZ SANTANA</h2>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <p style={{ marginLeft: "30%", marginRight: "50px" }}>
+          Arquiteta e urbanista formada em 2016. com experiência em paisagismo e
+          planejamento urbano.
+        </p>
+        <img
+          src={pinarqImage}
+          alt="Imagem de Geovana Regina"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        ></img>
+      </div>
+    </div>
+  );
+}
+
+// Página Projeto
+function Projeto() {
+  return (
+    <div
+      style={{
+        padding: "20px",
+        maxWidth: "100%",
+        textAlign: "center",
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "90px",
+        backgroundColor: "#FFEDED",
+      }}
+    >
+      {/* Primeira linha de imagens com textos */}
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 1"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Residência luamanda
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 2"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Residência Geni
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 3"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Residência cube
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 4"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Cabana madera
+        </p>
+      </div>
+
+      {/* Segunda linha de imagens com textos */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 5"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Residência querença
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 6"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Percuso 22
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 7"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Residência duo
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "16px",
+        }}
+      >
+        <img
+          src={projetoImage}
+          alt="Imagem do Projeto 8"
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "7px solid #759080",
+          }}
+        />{" "}
+        <p style={{ backgroundColor: "white", fontSize: "20px" }}>
+          Residência vista bela
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// Página Contatos
+function Contatos() {
+  return <h2 style={{ width: "100%", textAlign: "center" }}>Contatos</h2>;
+}
+
+// Barra de navegação
+function Navbar() {
+  return (
+    <nav style={{ position: "fixed", top: "100px", width: "100%" }}>
+      <div
+        style={{
+          display: "flex",
+          padding: "1rem",
+          alignItems: "center",
+          backgroundColor: "#A5FDD0",
+          borderBottom: "7px solid #3CA670",
+          borderTop: "7px solid #3CA670",
+        }}
+      >
+        <Link
+          to="/sobre-pinarq"
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            textDecoration: "none",
+            color: "black",
+            borderRight: "1px solid black",
+          }}
+        >
+          Sobre a PINARQ
+        </Link>
+        <Link
+          to="/sobre-nos"
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            textDecoration: "none",
+            color: "black",
+            borderRight: "1px solid black",
+          }}
+        >
+          Sobre Nós
+        </Link>
+        <Link
+          to="/projeto"
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            textDecoration: "none",
+            color: "black",
+            borderRight: "1px solid black",
+          }}
+        >
+          Projeto
+        </Link>
+        <Link
+          to="/contatos"
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            textDecoration: "none",
+            color: "black",
+          }}
+        >
+          Contatos
+        </Link>
+      </div>
+    </nav>
+  );
+}
+
+// Componente principal do aplicativo
+export default function App() {
+  return (
+    <Router>
+      <Header />
+      <Navbar />
+      {/* Ajuste para que o conteúdo fique visível abaixo do Header e Navbar */}
+      <div
+        style={{
+          paddingTop: "160px",
+          height: "calc(100vh - 160px)",
+          overflowY: "auto",
+          width: "100%",
+        }}
+      >
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/sobre-pinarq" element={<SobrePINARQ />} />
