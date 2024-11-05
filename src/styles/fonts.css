@@ -10,3 +10,10 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'frases';
+    src: url('../assets/fonts/Sanchez-Italic.ttf') format('truetype'); /* Ajuste o caminho se você quiser */
+    font-weight: normal;
+    font-style: normal;
+}
+

@@ -1,36 +1,49 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'; // Importando useNavigate
+
 const Navbar = () => {
+  const navigate = useNavigate(); // Inicializando useNavigate
+
+  const handleNavigate = (path) => {
+    navigate(path, { replace: true }); // Usando replace para navegar
+  };
+
   return (
     <div>
       {/* Nome no topo e HOME alinhado à direita */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between", // Ajusta o posicionamento entre PINARQ e HOME
+          justifyContent: "space-between",
           alignItems: "center",
           height: "80px",
-          padding: "0 20px", // Adiciona espaçamento lateral
+          padding: "0 20px",
           backgroundColor: "#A5FDD0",
         }}
       >
-        <div style={{ flex: "1" }} /> {/* Espaço vazio para empurrar PINARQ para o centro */}
+        <div style={{ flex: "1" }} />
         
-        <a
+        <div
           style={{
             color: "#010324",
             fontSize: "40px",
             fontWeight: "bold",
             textAlign: "center",
             textDecoration: "none",
+            fontFamily: "Lastica",
+            cursor: "pointer" // Adicionando cursor pointer para indicar que é clicável
           }}
-          href="#"
+          onClick={() => handleNavigate("/")} // Usando handleNavigate para a página inicial
         >
           PINARQ
-        </a>
+        </div>
         
-        <a style={{ color: "#010324", fontSize: "8px", textAlign: "right", flex: "1" }} href="#">
+        <div 
+          style={{ color: "#010324", fontSize: "8px", textAlign: "right", flex: "1", cursor: "pointer" }} 
+          onClick={() => handleNavigate("/")} // Usando handleNavigate para a página inicial
+        >
           HOME
-        </a>
+        </div>
       </div>
 
       {/* Lista de links abaixo */}
@@ -42,31 +55,43 @@ const Navbar = () => {
             backgroundColor: "#A5FDD0",
             borderBottom: "3px solid #3CA670",
             borderTop: "3px solid #3CA670",
-            fontSize: "12px",
-            padding: "4px",
+            fontSize: "20px",
+            padding: "8px",
             listStyleType: "none",
             margin: 0,
           }}
         >
           <li style={{ padding: "0 16px" }}>
-            <a style={{ color: "#010324", borderBottom: "2px solid #010324" }} href="/sobrePinarq">
+            <div 
+              style={{ color: "#010324", cursor: "pointer" }} 
+              onClick={() => handleNavigate("/SobrePinarq")} // Usando handleNavigate para Sobre a PINARQ
+            >
               Sobre a PINARQ
-            </a>
+            </div>
           </li>
           <li style={{ padding: "0 16px", borderLeft: "1px solid #3CA670" }}>
-            <a style={{ color: "#010324", borderBottom: "2px solid #010324" }} href="#">
+            <div 
+              style={{ color: "#010324", cursor: "pointer" }} 
+              onClick={() => handleNavigate("/sobreNos")} // Usando handleNavigate para Sobre Nós
+            >
               Sobre Nós
-            </a>
+            </div>
           </li>
           <li style={{ padding: "0 16px", borderLeft: "1px solid #3CA670" }}>
-            <a style={{ color: "#010324", borderBottom: "2px solid #010324" }} href="#">
+            <div 
+              style={{ color: "#010324", cursor: "pointer" }} 
+              onClick={() => handleNavigate("/projetos")} // Usando handleNavigate para Projetos
+            >
               Projetos
-            </a>
+            </div>
           </li>
           <li style={{ padding: "0 16px", borderLeft: "1px solid #3CA670" }}>
-            <a style={{ color: "#010324", borderBottom: "2px solid #010324" }} href="#">
+            <div 
+              style={{ color: "#010324", cursor: "pointer" }} 
+              onClick={() => handleNavigate("/contato")} // Usando handleNavigate para Contato
+            >
               Contato
-            </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -77,14 +102,13 @@ const Navbar = () => {
           backgroundColor: "#FFEDED",
           minHeight: "100vh",
           display: "flex",
-          alignItems: "flex-start", // Alinha o texto no topo verticalmente
-          padding: "40px 40px", // Define um padding maior para posicionar o texto no topo e à esquerda
+          alignItems: "flex-start",
+          padding: "40px 40px",
         }}
       >
-        {/* Texto alinhado à esquerda e mais para cima */}
-        <h3 style={{ fontSize: "40px", color: "#FE9C9C", margin: "0", textAlign: "left" }}>
-          Há um gosto de vitória e encanto <br /> na condição de ser simples.
-          Não é <br />preciso muito para ser muito.
+        <h3 style={{ fontSize: "35px", color: "#FE9C9C", margin: "0", textAlign: "left" }}>
+          HÁ UM GOSTO DE VITÓRIA E ENCANTO <br /> NA CONDIÇÃO DE SER SIMPLES.
+          NÃO É <br />PRECISO MUITO PARA SER MUITO.
           <p style={{ fontSize: "15px", color: "#5B5858", marginTop: "8px" }}>Lina Bo Bardi</p>
         </h3>
       </div>
