@@ -126,149 +126,124 @@ function SobreNos() {
       <h1 style={{ textAlign: "center" }}>Sobre Nós</h1>
 
       <div
-        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "20px",
+          maxWidth: "100%",
+        }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src={pinarqImage} // Replace with the actual image path
-            alt="Imagem de Geovana Regina"
+        {/* Definindo o layout para cada membro da equipe */}
+        {[
+          { name: "GEOVANA REGINA", image: pinarqImage },
+          { name: "GABRIELLE RIZZO", image: pinarqImage },
+          { name: "NAYARA ALVES", image: pinarqImage },
+          { name: "BEATRIZ SANTANA", image: pinarqImage },
+        ].map((membro, index) => (
+          <div
+            key={index}
             style={{
-              width: "200px",
-              height: "200px",
-              borderRadius: "50%",
-              marginRight: "16px",
-              border: "7px solid #759080",
+              display: "flex",
+              alignItems: "center",
+              flexDirection: window.innerWidth < 768 ? "column" : "row",
+              justifyContent: "center",
             }}
-          />
-          <h2 style={{ textAlign: "left" }}>GEOVANA REGINA</h2>
-        </div>
+          >
+            {index % 2 === 0 && (
+              <img
+                src={membro.image}
+                alt={`Imagem de ${membro.name}`}
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  borderRadius: "50%",
+                  border: "7px solid #759080",
+                  marginRight: "16px",
+                }}
+              />
+            )}
+            <h2 style={{ textAlign: "center", margin: "10px" }}>{membro.name}</h2>
+            {index % 2 !== 0 && (
+              <img
+                src={membro.image}
+                alt={`Imagem de ${membro.name}`}
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  borderRadius: "50%",
+                  border: "7px solid #759080",
+                  marginLeft: "16px",
+                }}
+              />
+            )}
+          </div>
+        ))}
 
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <h2 style={{ marginLeft: "300px" }}>GABRIELLE RIZZO</h2>{" "}
-          {/* Ajuste a margem direita do h2 */}
-          <img
-            src={pinarqImage} // Replace with the actual image path
-            alt="Imagem de Outra Pessoa"
+        <hr style={{ width: "100%", border: "1px solid #759080", gridColumn: "1 / -1" }} />
+
+        {/* Seção de descrição de cada membro */}
+        {[
+          {
+            name: "GEOVANA REGINA",
+            description: "Arquiteta formada no IFSP em 2010, com experiência em projetos de grande porte.",
+          },
+          {
+            name: "GABRIELLE RIZZO",
+            description: "Formada em arquitetura e urbanismo em 2015, com experiência em interiores.",
+          },
+          {
+            name: "NAYARA ALVES",
+            description: "Formada em arquitetura e urbanismo em 2015, com experiência em conforto e interiores.",
+          },
+          {
+            name: "BEATRIZ SANTANA",
+            description: "Arquiteta e urbanista formada em 2016, com experiência em paisagismo e planejamento urbano.",
+          },
+        ].map((membro, index) => (
+          <div
+            key={index}
             style={{
-              width: "200px",
-              height: "200px",
-              borderRadius: "50%",
-              border: "7px solid #759080",
-              marginLeft: "16px",
+              display: "flex",
+              alignItems: "center",
+              flexDirection: window.innerWidth < 768 ? "column" : "row",
+              marginBottom: "20px",
+              textAlign: window.innerWidth < 768 ? "center" : "left",
             }}
-          />
-        </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src={pinarqImage} // Replace with the actual image path
-            alt="Imagem de Geovana Regina"
-            style={{
-              width: "200px",
-              height: "200px",
-              borderRadius: "50%",
-              marginRight: "16px",
-              border: "7px solid #759080",
-            }}
-          />
-          <h2 style={{ textAlign: "left" }}>NAYARA ALVES</h2>
-        </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <h2 style={{ marginLeft: "283px" }}>BEATRIZ SANTANA</h2>{" "}
-          {/* Ajuste a margem direita do h2 */}
-          <img
-            src={pinarqImage} // Replace with the actual image path
-            alt="Imagem de Outra Pessoa"
-            style={{
-              width: "200px",
-              height: "200px",
-              borderRadius: "50%",
-              border: "7px solid #759080",
-              marginLeft: "16px",
-            }}
-          />
-        </div>
-        <div>
-          <hr style={{ width: "200%", border: "1px solid #759080" }}></hr>
-        </div>
-        <div></div>
-      </div>
-
-      <h2>GEOVANA REGINA</h2>
-      <div
-        style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}
-      >
-        <img
-          src={pinarqImage}
-          alt="Imagem de Geovana Regina"
-          style={{
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "7px solid #759080",
-            marginRight: "60px",
-          }}
-        ></img>
-        <p>
-          Arquiteta formada no ifsp em 2010, com experiência em projetos de
-          grande porte.
-        </p>
-      </div>
-
-      <h2 style={{ marginLeft: "80%" }}>GABRIELLE RIZZO</h2>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <p style={{ marginLeft: "36%", marginRight: "60px" }}>
-          Formada em arquitetura e urbanismo no ano de 2015, com experiência em
-          interiores
-        </p>
-        <img
-          src={pinarqImage}
-          alt="Imagem de Geovana Regina"
-          style={{
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "7px solid #759080",
-          }}
-        ></img>
-      </div>
-
-      <h2>NAYARA ALVES</h2>
-      <div
-        style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}
-      >
-        <img
-          src={pinarqImage}
-          alt="Imagem de Geovana Regina"
-          style={{
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "7px solid #759080",
-            marginRight: "60px",
-          }}
-        ></img>
-        <p>
-          Formada em arquitetura e urbanismo no ano de 2015, com experiência em
-          conforto e interiores.
-        </p>
-      </div>
-
-      <h2 style={{ marginLeft: "80%" }}>BEATRIZ SANTANA</h2>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <p style={{ marginLeft: "30%", marginRight: "50px" }}>
-          Arquiteta e urbanista formada em 2016. com experiência em paisagismo e
-          planejamento urbano.
-        </p>
-        <img
-          src={pinarqImage}
-          alt="Imagem de Geovana Regina"
-          style={{
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            border: "7px solid #759080",
-          }}
-        ></img>
+          >
+            {index % 2 === 0 && (
+              <img
+                src={pinarqImage}
+                alt={`Imagem de ${membro.name}`}
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  borderRadius: "50%",
+                  border: "7px solid #759080",
+                  marginRight: window.innerWidth < 768 ? "0" : "60px",
+                  marginBottom: window.innerWidth < 768 ? "10px" : "0",
+                }}
+              />
+            )}
+            <div style={{ maxWidth: "400px", margin: "auto" }}>
+              <h2>{membro.name}</h2>
+              <p>{membro.description}</p>
+            </div>
+            {index % 2 !== 0 && (
+              <img
+                src={pinarqImage}
+                alt={`Imagem de ${membro.name}`}
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  borderRadius: "50%",
+                  border: "7px solid #759080",
+                  marginLeft: window.innerWidth < 768 ? "0" : "60px",
+                  marginTop: window.innerWidth < 768 ? "10px" : "0",
+                }}
+              />
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
