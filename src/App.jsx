@@ -1,5 +1,5 @@
-// src/App.jsx
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // Importa PropTypes
 
 // Componente para a página Home
 const Home = () => (
@@ -20,7 +20,13 @@ const Home = () => (
 
 // Componente para a página "Sobre a PINARQ"
 const SobrePinarq = () => (
-  <div style={{ padding: "20px", backgroundColor: "#FFEDED", color: "#010324" }}>
+  <div style={{
+    backgroundColor: "#FFEDED",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "flex-start",
+    padding: "40px 40px",
+  }}>
     <h2>Sobre a PINARQ</h2>
     <p>A PINARQ é uma empresa dedicada à arquitetura e design, focada em criar espaços que inspiram e conectam as pessoas. Com uma abordagem inovadora e sustentável, buscamos transformar a maneira como as pessoas interagem com seus ambientes.</p>
   </div>
@@ -28,7 +34,13 @@ const SobrePinarq = () => (
 
 // Componente para a página "Sobre Nós"
 const SobreNos = () => (
-  <div style={{ padding: "20px", backgroundColor: "#FFEDED", color: "#010324" }}>
+  <div style={{
+    backgroundColor: "#FFEDED",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "flex-start",
+    padding: "40px 40px",
+  }}>
     <h2>Sobre Nós</h2>
     <p>Conheça nossa equipe de arquitetos e designers que estão comprometidos em criar projetos únicos e inspiradores.</p>
   </div>
@@ -36,7 +48,13 @@ const SobreNos = () => (
 
 // Componente para a página "Projetos"
 const Projetos = () => (
-  <div style={{ padding: "20px", backgroundColor: "#FFEDED", color: "#010324" }}>
+  <div style={{
+    backgroundColor: "#FFEDED",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "flex-start",
+    padding: "40px 40px",
+  }}>
     <h2>Projetos</h2>
     <p>Explore nossos projetos mais recentes e descubra como transformamos ideias em realidade.</p>
   </div>
@@ -44,12 +62,19 @@ const Projetos = () => (
 
 // Componente para a página "Contato"
 const Contato = () => (
-  <div style={{ padding: "20px", backgroundColor: "#FFEDED", color: "#010324" }}>
+  <div style={{
+    backgroundColor: "#FFEDED",
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "flex-start",
+    padding: "40px 40px",
+  }}>
     <h2>Contato</h2>
     <p>Entre em contato conosco através do e-mail: contato@pinarq.com ou pelo telefone: (XX) XXXX-XXXX.</p>
   </div>
 );
 
+// Componente Navbar
 const Navbar = ({ setActivePage }) => {
   return (
     <div>
@@ -63,7 +88,6 @@ const Navbar = ({ setActivePage }) => {
         backgroundColor: "#A5FDD0",
       }}>
         <div style={{ flex: "1" }} />
-
         <a
           style={{
             color: "#010324",
@@ -78,7 +102,6 @@ const Navbar = ({ setActivePage }) => {
         >
           PINARQ
         </a>
-
         <a
           style={{ color: "#010324", fontSize: "8px", textAlign: "right", flex: "1" }}
           href="#"
@@ -87,7 +110,6 @@ const Navbar = ({ setActivePage }) => {
           HOME
         </a>
       </div>
-
       {/* Lista de links abaixo */}
       <div>
         <ul style={{
@@ -101,7 +123,7 @@ const Navbar = ({ setActivePage }) => {
           listStyleType: "none",
           margin: 0,
         }}>
-          <li style={{ padding: "0 8%", margin: "0 10px" }}> {/* Aumenta a margem aqui */}
+          <li style={{ padding: "0 8%", margin: "0 10px" }}>
             <a
               style={{ color: "#010324" }}
               href="#"
@@ -141,6 +163,11 @@ const Navbar = ({ setActivePage }) => {
       </div>
     </div>
   );
+};
+
+// Adiciona a validação de props
+Navbar.propTypes = {
+  setActivePage: PropTypes.func.isRequired, // Valida que setActivePage é uma função e é obrigatória
 };
 
 const App = () => {
