@@ -615,7 +615,6 @@ const Contato = () => {
             </div>
           </a>
           
-          {/* Ícone do WhatsApp com o número ao lado */}
           <a
             href="https://wa.me/559999999999"
             target="_blank"
